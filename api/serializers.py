@@ -4,7 +4,11 @@ from rest_framework import serializers
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = '__all__'
+        fields = (
+            'id',
+            'username',
+            'password',
+        )
     
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -14,11 +18,7 @@ class CategorySerializer(serializers.ModelSerializer):
 class CreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Create
-        fields = (
-            'id',
-            'username',
-            'password',
-        )
+        fields = '__all__'
 
     def get_image(self, obj):
         request = self.context.get('request')
