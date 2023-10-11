@@ -14,7 +14,11 @@ class CategorySerializer(serializers.ModelSerializer):
 class CreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Create
-        fields = '__all__'
+        fields = (
+            'id',
+            'username',
+            'password',
+        )
 
     def get_image(self, obj):
         request = self.context.get('request')
