@@ -1,5 +1,5 @@
 from .views import user, user_detail, category, category_detail, create, create_detail
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path('user/', user),
@@ -8,4 +8,5 @@ urlpatterns = [
     path('category/<int:pk>/', category_detail),
     path('create/', create),
     path('create/<int:pk>/', create_detail),
+    path('auth/', include('dj_rest_auth.urls')),
 ]
